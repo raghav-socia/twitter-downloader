@@ -1,0 +1,5 @@
+{
+  "name": "X（Twitter）動画ダウンローダー",
+  "description": "X（Twitter）の動画を無料で保存・ダウンロードできるWebツール。高画質MP4対応、登録不要。",
+  "requestFramePermissions": []
+}
