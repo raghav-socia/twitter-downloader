@@ -131,7 +131,7 @@ const Hero: React.FC = () => {
           <div className="flex items-center justify-between mt-4 px-2">
             <p className="text-sm text-text-secondary font-medium">
               <span className="text-jp-red font-bold">例：</span>
-              https://x.com/elonmusk/status/1234567890
+              https://x.com/elonmusk/status/1995400800827494653
             </p>
             <span className="text-xs text-jp-gold font-bold bg-jp-black px-2 py-1">
               PASTE & GO
