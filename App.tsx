@@ -8,9 +8,9 @@ import FAQ from './components/FAQ';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-bg-primary font-sans text-text-primary">
+    <div className="min-h-screen flex flex-col bg-jp-white font-sans text-text-primary">
       <Header />
-      
+
       <main className="flex-grow">
         <Hero />
         <HowTo />

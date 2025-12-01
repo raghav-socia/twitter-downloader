@@ -6,7 +6,12 @@
     <title>X（Twitter）動画ダウンローダー | 無料で動画を保存 - 高画質MP4対応</title>
     <meta name="description" content="X（Twitter）の動画を無料でダウンロード。登録不要、高画質MP4対応。URLを貼り付けるだけで簡単に動画を保存できます。" />
     <meta name="keywords" content="Twitter動画ダウンロード,X動画保存,Twitter動画保存,ツイッター動画ダウンロード,無料,MP4" />
-    
+
+    <!-- Google Fonts for Japanese Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -15,52 +20,181 @@
           extend: {
             fontFamily: {
               sans: [
+                'Noto Sans JP',
                 'Hiragino Kaku Gothic ProN',
                 'Hiragino Sans',
                 'Yu Gothic',
                 '游ゴシック',
                 'Meiryo',
                 'メイリオ',
-                'Noto Sans CJK JP',
                 'sans-serif'
               ],
             },
             colors: {
-              primary: {
-                DEFAULT: '#1D9BF0',
-                hover: '#1A8CD8',
-                light: '#E8F5FD',
+              // Traditional Japanese Colors
+              jp: {
+                red: {
+                  DEFAULT: '#D32F2F',
+                  dark: '#B71C1C',
+                  light: '#FFCDD2',
+                  hover: '#C62828',
+                },
+                black: {
+                  DEFAULT: '#000000',
+                  soft: '#212121',
+                  muted: '#424242',
+                },
+                white: {
+                  DEFAULT: '#FFFFFF',
+                  off: '#FAFAFA',
+                  cream: '#F5F5F5',
+                },
+                gold: {
+                  DEFAULT: '#FFB300',
+                  dark: '#D4AF37',
+                  light: '#FFE082',
+                },
+                navy: {
+                  DEFAULT: '#1A237E',
+                  light: '#3949AB',
+                  dark: '#0D47A1',
+                },
+                pink: {
+                  DEFAULT: '#FFC1CC',
+                  light: '#FFE4E1',
+                },
               },
-              accent: {
-                DEFAULT: '#E31C3D',
-                hover: '#C41230',
-              },
+              // Text colors
               text: {
                 primary: '#0F1419',
                 secondary: '#536471',
                 tertiary: '#8B98A5',
+                inverse: '#FFFFFF',
               },
+              // Background colors
               bg: {
                 primary: '#FFFFFF',
-                secondary: '#F7F9FA',
-                tertiary: '#EFF3F4',
+                secondary: '#F5F5F5',
+                tertiary: '#EEEEEE',
+                dark: '#000000',
               }
             },
             lineHeight: {
+              'ja': '1.7',
               'ja-relaxed': '1.8',
+            },
+            fontSize: {
+              'hero': ['4rem', { lineHeight: '1.2', fontWeight: '900' }],
+              'hero-sm': ['2.5rem', { lineHeight: '1.2', fontWeight: '900' }],
+            },
+            borderWidth: {
+              '3': '3px',
+              '4': '4px',
+            },
+            boxShadow: {
+              'jp': '4px 4px 0px 0px rgba(0,0,0,1)',
+              'jp-sm': '2px 2px 0px 0px rgba(0,0,0,1)',
+              'jp-red': '4px 4px 0px 0px #D32F2F',
+              'jp-gold': '4px 4px 0px 0px #D4AF37',
+            },
+            animation: {
+              'float': 'float 3s ease-in-out infinite',
+              'pulse-slow': 'pulse 3s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
             }
           }
         }
       }
     </script>
     <style>
-      /* Custom scroll behavior for anchor links */
+      /* Custom scroll behavior */
       html {
         scroll-behavior: smooth;
       }
       body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Japanese wave pattern background */
+      .bg-seigaiha {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40'%3E%3Cpath fill='none' stroke='%23D32F2F' stroke-width='0.5' stroke-opacity='0.1' d='M0 40 Q20 0 40 40 Q60 0 80 40'/%3E%3C/svg%3E");
+        background-size: 80px 40px;
+      }
+
+      /* Sakura pattern */
+      .bg-sakura {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='4' fill='%23FFC1CC' fill-opacity='0.3'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%23FFC1CC' fill-opacity='0.2'/%3E%3Ccircle cx='50' cy='50' r='2' fill='%23FFC1CC' fill-opacity='0.2'/%3E%3C/svg%3E");
+        background-size: 60px 60px;
+      }
+
+      /* Dot pattern */
+      .bg-dots {
+        background-image: radial-gradient(circle, #000 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+
+      /* Halftone pattern */
+      .bg-halftone {
+        background-image: radial-gradient(circle, #D32F2F 1px, transparent 1px);
+        background-size: 8px 8px;
+      }
+
+      /* Traditional border style */
+      .border-jp {
+        border: 3px solid #000;
+      }
+
+      /* Double border effect */
+      .border-double-jp {
+        border: 2px solid #000;
+        outline: 2px solid #000;
+        outline-offset: 3px;
+      }
+
+      /* Red accent border */
+      .border-accent-jp {
+        border-left: 4px solid #D32F2F;
+      }
+
+      /* Gold circle decoration */
+      .gold-circle::before {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background: #FFB300;
+        border-radius: 50%;
+        z-index: -1;
+      }
+
+      /* Vertical text */
+      .vertical-text {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+
+      /* Button press effect */
+      .btn-jp {
+        transition: all 0.1s ease;
+      }
+      .btn-jp:active {
+        transform: translate(2px, 2px);
+        box-shadow: none !important;
+      }
+
+      /* Card hover effect */
+      .card-jp {
+        transition: all 0.2s ease;
+      }
+      .card-jp:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
       }
     </style>
   <script type="importmap">
@@ -74,7 +208,8 @@
 }
 </script>
 </head>
-  <body class="bg-bg-primary text-text-primary font-sans leading-ja-relaxed antialiased">
+  <body class="bg-bg-primary text-text-primary font-sans leading-ja antialiased">
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
